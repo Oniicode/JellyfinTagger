@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jellyfin.Controller" Version="10.8.1" />
+    <PackageReference Include="Jellyfin.Model" Version="10.8.1" />
+    <PackageReference Include="TagLibSharp" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="meta.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

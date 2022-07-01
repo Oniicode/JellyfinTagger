@@ -1,0 +1,14 @@
+{
+  "category": "Metadata",
+  "changelog": "",
+  "description": "Uses embedded MKV metadata as a primary source of metadata.",
+  "guid": "78052ebe-1b0c-4516-9417-09992c43da8e",
+  "name": "Tagger",
+  "overview": "Use embedded metadata instead of external",
+  "owner": "Dargen_",
+  "targetAbi": "10.8.0.0",
+  "timestamp": "0001-01-01T00:00:00.0000000Z",
+  "version": "1.0.0.0",
+  "status": "Active",
+  "autoUpdate": false
+}
