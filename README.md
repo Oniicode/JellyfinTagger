@@ -1,7 +1,4 @@
 # Jellyfin Tagger
-Workaround to make Jellyfin prefer episode titles from embedded MKV tags over remote metadata providers.
-
-## Description 
 Somtimes, we get two episodes in one file, which share the same number.
 And sometimes, this won't match up with most metadata providers, as they use numbers for the individual episode halves.
 This results in jellyfin giving the episodes the wrong names. From those providers. 
