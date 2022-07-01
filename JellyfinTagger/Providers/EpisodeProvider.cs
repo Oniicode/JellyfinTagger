@@ -38,15 +38,13 @@ namespace JellyfinTagger.Providers
             var correctTitle = file.Tag.Title;
             if (file.GetType() == typeof(TagLib.Matroska.File)) // MKVs require this workaround because of a bug in TagLib -.-
             {
-                var combinedTag = (TagLib.Matroska.Tag)file.Tag;
-                var latestTag = combinedTag.Tags.Last();
-                if (latestTag.Title != null)
-                    correctTitle = latestTag.Title;
+                var title = ((TagLib.Matroska.Tag)file.Tag).Tags.LastOrDefault()?.Title;
+                if (title != null)
+                    correctTitle = title;
             }
 
             var fallbackEpisode = _episodeResolver.Resolve(info.Path, false);
-            //TODO: Read Episode and Season numbers
-            //Jellyfin got unit tests for parsing those outta file names. Use those methods as a fallback.
+            //TODO: Read Episode and Season numbers from Embedded Tags and only use Jellyfin's resolver as a fallback.
 
             if (string.IsNullOrWhiteSpace(correctTitle) || fallbackEpisode == null)
                 return Empty;
