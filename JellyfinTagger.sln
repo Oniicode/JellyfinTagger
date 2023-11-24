@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JellyfinTagger", "JellyfinTagger\JellyfinTagger.csproj", "{6B46E2B4-FB80-4B12-8A19-114A383C1BD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JellyfinTagger", "JellyfinTagger\JellyfinTagger.csproj", "{6B46E2B4-FB80-4B12-8A19-114A383C1BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JellyfinTagger.Test", "JellyfinTagger.Test\JellyfinTagger.Test.csproj", "{919B1473-9427-46CF-B0E2-3D24B863A6F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6B46E2B4-FB80-4B12-8A19-114A383C1BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B46E2B4-FB80-4B12-8A19-114A383C1BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B46E2B4-FB80-4B12-8A19-114A383C1BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919B1473-9427-46CF-B0E2-3D24B863A6F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919B1473-9427-46CF-B0E2-3D24B863A6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919B1473-9427-46CF-B0E2-3D24B863A6F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919B1473-9427-46CF-B0E2-3D24B863A6F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
