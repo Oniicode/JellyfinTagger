@@ -15,7 +15,7 @@ namespace JellyfinTagger.Test;
 public class DevTest
 {
     [TestMethod]
-    [DataRow("I:\\FreeFlix\\Ruby Gloom\\s01e01.mkv")]
+    [DataRow("I:\\FreeFlix\\Serien\\CatDog (1998-2005)\\s1e03-04.mkv")]
     public async Task PerformTest(string testFileName)
     {
         if(!File.Exists(testFileName)) 
@@ -38,8 +38,11 @@ public class DevTest
     [TestMethod]
     [DataRow("s01e01.mkv", true)]
     [DataRow("s1e1.mkv", true)]
+    [DataRow("s1e1-2.mkv", true)]
+    [DataRow("s1e1-3.mkv", true)]
     [DataRow("s01e01-02.mkv", true)]
     [DataRow("s01e02-02.mkv", true)]
+    [DataRow("s01e02-06.mkv", true)]
     [DataRow("s01e02-06.mkv", true)]
     [DataRow("s01e05.mkv", true)]
     [DataRow("s02e07.mkv", true)]
@@ -61,6 +64,35 @@ public class DevTest
             Assert.IsNotNull(result);
         else
             Assert.IsNull(result);
+    }
+
+    [TestMethod]
+    [DataRow("/s01e01.mkv", 1, 1, null)]
+    [DataRow("/s1e1.mkv", 1, 1, null)]
+    [DataRow("/s1e1-2.mkv", 1, 1, 2)]
+    [DataRow("/s1e1-3.mkv", 1, 1, 3)]
+    [DataRow("/s1 e1-3.mkv", 1, 1, 3)]
+    [DataRow("/s01e01-02.mkv", 1, 1, 2)]
+    [DataRow("/s01e02-02.mkv", 1, 2, 2)]
+    [DataRow("/s01e02-06.mkv", 1, 2, 6)]
+    [DataRow("/s01e02-06.mkv", 1, 2, 6)]
+    [DataRow("/s1e03-04.mkv", 1, 3, 4)]
+    [DataRow("\\s1e03-04.mkv", 1, 3, 4)]
+    [DataRow("/s1e03-04.mkv", 1, 3, 4)]
+    [DataRow("/s01e05.mkv", 1, 5, null)]
+    [DataRow("/s02e07.mkv", 2, 7, null)]
+    [DataRow("/s00e07.mkv", 0, 7, null)]
+    public void TestJellyfingEpisodeResolver_WithEndingEpisode(string fileName, int seasonNum, int episodeNum, int? endingEpisodeNum)
+    {
+        var resolver = new EpisodeResolver(new());
+        var result = resolver.Resolve(fileName, false);
+
+        Debug.WriteLine(JsonSerializer.Serialize(result, new JsonSerializerOptions() { WriteIndented = true }));
+
+        Assert.IsNotNull(result);
+        //Assert.AreEqual(seasonNum, result.SeasonNumber, "Season mismatch");
+        Assert.AreEqual(episodeNum, result.EpisodeNumber, "Episode mismatch");
+        Assert.AreEqual(endingEpisodeNum, result.EndingEpisodeNumber, "Ending episode mismatch");
     }
 
     private void GetMockFileModels(string fileName, bool forcetagsSet, out ItemInfo itemInfo, out IDirectoryService directoryService)
