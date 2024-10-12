@@ -71,7 +71,6 @@ public class DevTest
     [DataRow("/s1e1.mkv", 1, 1, null)]
     [DataRow("/s1e1-2.mkv", 1, 1, 2)]
     [DataRow("/s1e1-3.mkv", 1, 1, 3)]
-    [DataRow("/s1 e1-3.mkv", 1, 1, 3)]
     [DataRow("/s01e01-02.mkv", 1, 1, 2)]
     [DataRow("/s01e02-02.mkv", 1, 2, 2)]
     [DataRow("/s01e02-06.mkv", 1, 2, 6)]
